@@ -19,7 +19,7 @@ pnpm dev               # http://localhost:5173
 ## Variáveis de ambiente
 | Var | Descrição |
 |-----|-----------|
-| `VITE_API_URL` | URL completa do backend (ex: http://localhost:3000) |
+| `VITE_API_URL` | URL completa do backend (ex: http://localhost:3333) |
 
 > Vite injeta `VITE_*` em build time. No Docker, passe via `--build-arg`.
 
@@ -29,8 +29,9 @@ pnpm dev               # http://localhost:5173
 - `/dashboard` — protegida (redireciona p/ `/login` se sem sessão)
 
 ## Docker
+Build + serve via `vite preview` na porta 5173 (sem nginx).
 ```bash
 docker build -t teste-login-frontend \
-  --build-arg VITE_API_URL=http://localhost:3000 .
-docker run -p 5173:80 teste-login-frontend
+  --build-arg VITE_API_URL=http://localhost:3333 .
+docker run -p 5173:5173 teste-login-frontend
 ```
