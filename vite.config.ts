@@ -8,7 +8,10 @@ export default defineConfig({
     host: true,
   },
   preview: {
-    port: 5173,
+    // Honra a porta injetada pela infra (Coolify/Traefik); fallback 5173.
+    port: Number(process.env.PORT) || 5173,
     host: true,
+    // Atrás de proxy reverso o Host vem com o domínio público — não bloquear.
+    allowedHosts: true,
   },
 });

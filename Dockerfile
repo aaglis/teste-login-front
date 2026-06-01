@@ -13,5 +13,5 @@ COPY . .
 RUN pnpm build
 
 EXPOSE 5173
-# Serve the production build with vite preview on 5173.
-CMD ["pnpm", "preview", "--host", "--port", "5173"]
+# Serve the production build. Port/host/allowedHosts vêm do vite.config (honra $PORT).
+CMD ["pnpm", "preview"]
